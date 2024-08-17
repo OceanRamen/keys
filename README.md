@@ -1,8 +1,8 @@
-### Use the Left and Right arrows to cycle through your consumeables!
+## Keys - A hot-key mod 
 
 Requires lovely (https://github.com/ethangreen-dev/lovely-injector)
 
-Features: 
+### Features
 
 - `Left Arrow` and `Right Arrow` to cycle through consumeables *(Hold for accelerated cycling)*. Cycling starts from current selected card or from index 1.
 
