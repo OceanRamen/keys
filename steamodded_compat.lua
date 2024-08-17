@@ -1,0 +1,7 @@
+--- STEAMODDED HEADER
+--- MOD_NAME: Keys
+--- MOD_ID: Keys
+--- PREFIX: keys
+--- MOD_AUTHOR: [OceanRamen]
+--- MOD_DESCRIPTION: Use the Left and Right arrows to cycle through your consumeables!
+--- VERSION: 1.0.0
