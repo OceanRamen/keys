@@ -56,43 +56,18 @@ function Controller:key_press_update(key, dt)
       Keys.moveRight()
     end
   end
-  -- if key == 'rshift' and not G.SETTINGS.paused then
-  --   if (G.consumeables or {}).highlighted then
-  --     local card = G.consumeables.highlighted[1]
-  --     card.selected = not card.selected
-  --     if card.selected then
-  --       card.greyed = true
-  --     else
-  --       card.greyed = false
-  --     end
-  --   end
-  -- end
-  -- if key == 'rctrl' and not G.SETTINGS.paused then
-  --   -- Get selected cards
-  --   local selected_cards = {}
-  --   for k, v in pairs(G.consumeables.cards) do
-  --     if v.selected then
-  --       table.insert(selected_cards, #selected_cards, v)
-  --     end
-  --   end
-  --   if selected_cards then
-  --     local sell_value = 0
-  --     for k, v in pairs(selected_cards) do
-  --       sell_value = sell_value + v.sell_cost
-  --       v:remove()
-  --     end
-  --     G.E_MANAGER:add_event(Event({
-  --       trigger = 'after',
-  --       delay = 0.4,
-  --       func = function()
-  --         play_sound('timpani')
-  --         ease_dollars(sell_value, true)
-  --         return true
-  --       end,
-  --     }))
-  --     delay(0.6)
-  --   end
-  -- end
+  if key == 'return' and not G.SETTINGS.paused then
+    if (G.consumeables or {}).highlighted then
+      if #G.consumeables.highlighted > 0 then
+        local card = G.consumeables.highlighted[1]
+        if card:can_use_consumeable() then
+          G.consumeables:remove_from_highlighted(card)
+          card:use_consumeable()
+          card:start_dissolve()
+        end
+      end
+    end
+  end
 end
 
 local khuref = Controller.key_hold_update
